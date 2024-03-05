@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:front/conts/colors.dart';
 
-final titleStyle = GoogleFonts.rubik(
+const titleStyle = TextStyle(
   fontSize: 40,
   fontWeight: FontWeight.bold,
 );
 
-final buttonTextStyle = GoogleFonts.poppins(
-  color: Colors.white,
+const buttonTextStyle = TextStyle(
+  color: white,
   fontSize: 15,
 );
