@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 
+import '../routing/routes.dart';
+
 @RoutePage()
 class LandingScreen extends ConsumerStatefulWidget {
   const LandingScreen({super.key});
@@ -25,7 +27,7 @@ class _LandingScreenState extends ConsumerState<LandingScreen> {
               width: 200,
               child: ElevatedButton(
                 child: const Text("Visiteur"),
-                onPressed: () {},
+                onPressed: () => context.navigateNamedTo(Routes.visiteur),
               ),
             ),
             const Gap(10),
@@ -33,7 +35,7 @@ class _LandingScreenState extends ConsumerState<LandingScreen> {
               width: 200,
               child: ElevatedButton(
                 child: const Text("Admin"),
-                onPressed: () {},
+                onPressed: () => context.navigateNamedTo(Routes.admin),
               ),
             ),
           ],
