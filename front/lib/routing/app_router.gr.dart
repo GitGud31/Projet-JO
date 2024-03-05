@@ -15,16 +15,22 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
-    AdminRoute.name: (routeData) {
+    AdminDashbordRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const AdminScreen(),
+        child: const AdminDashbordScreen(),
       );
     },
     LandingRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const LandingScreen(),
+      );
+    },
+    LoginRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const LoginScreen(),
       );
     },
     VisiteurRoute.name: (routeData) {
@@ -37,15 +43,15 @@ abstract class _$AppRouter extends RootStackRouter {
 }
 
 /// generated route for
-/// [AdminScreen]
-class AdminRoute extends PageRouteInfo<void> {
-  const AdminRoute({List<PageRouteInfo>? children})
+/// [AdminDashbordScreen]
+class AdminDashbordRoute extends PageRouteInfo<void> {
+  const AdminDashbordRoute({List<PageRouteInfo>? children})
       : super(
-          AdminRoute.name,
+          AdminDashbordRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'AdminRoute';
+  static const String name = 'AdminDashbordRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -60,6 +66,20 @@ class LandingRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'LandingRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [LoginScreen]
+class LoginRoute extends PageRouteInfo<void> {
+  const LoginRoute({List<PageRouteInfo>? children})
+      : super(
+          LoginRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'LoginRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

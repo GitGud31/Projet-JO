@@ -35,7 +35,7 @@ class _LandingScreenState extends ConsumerState<LandingScreen> {
               width: 200,
               child: ElevatedButton(
                 child: const Text("Admin"),
-                onPressed: () => context.navigateNamedTo(Routes.admin),
+                onPressed: () => context.navigateNamedTo(Routes.login),
               ),
             ),
           ],
