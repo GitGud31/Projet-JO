@@ -1,38 +1,38 @@
-import fs from 'fs';
-import path, { dirname } from 'path';
-import { Sequelize, DataTypes } from 'sequelize';
-import { URL } from 'url';
+import { Sequelize } from 'sequelize';
+import dotenv from 'dotenv';
+import Admin from './admin.js';
+import Athlete from './athlete.js';
+import AthleteEpreuve from './athleteEpreuve.js';
+import Epreuve from './epreuve.js';
+import Pays from './pays.js';
+import PaysEpreuve from './paysEpreuve.js';
+import Sport from './sport.js';
 
-const __filename = new URL('', import.meta.url).pathname;
-let __dirname = new URL('.', import.meta.url).pathname;
-__dirname = __dirname.replace(/^\/[A-Za-z]:/,'').replace(/\//g, '\\'); // Remove any leading slash and convert forward slashes to backward slashes
+dotenv.config();
 
-const db = {};
 const sequelize = new Sequelize(process.env.DATABASE_NAME, process.env.DATABASE_USERNAME, process.env.DATABASE_PASSWORD, {
   host: process.env.DATABASE_HOST,
   dialect: 'mysql',
 });
 
-// Read the files in the current directory
-const files = fs.readdirSync(__dirname);
-// Loop through the files and import models
-for (const file of files) {
-  if (file !== 'index.js') { // Exclude index.js from processing
-    const model = await import(path.join(__dirname, file));
-    db[model.default.name] = model.default(sequelize, DataTypes);
-  }
-}
+const AdminModel = Admin(sequelize, Sequelize);
+const AthleteModel = Athlete(sequelize, Sequelize);
+const AthleteEpreuveModel = AthleteEpreuve(sequelize, Sequelize);
+const EpreuveModel = Epreuve(sequelize, Sequelize);
+const PaysModel = Pays(sequelize, Sequelize);
+const PaysEpreuveModel = PaysEpreuve(sequelize, Sequelize);
+const SportModel = Sport(sequelize, Sequelize);
 
-// Associate the models if necessary
-for (const modelName of Object.keys(db)) {
-  if (db[modelName].associate) {
-    db[modelName].associate(db);
-  }
-}
 
-// Add sequelize and Sequelize to the db object
-db.sequelize = sequelize;
-db.Sequelize = Sequelize;
+const models = {
+  AdminModel,
+  AthleteModel,
+  AthleteEpreuveModel,
+  EpreuveModel,
+  PaysModel,
+  PaysEpreuveModel,
+  SportModel,
+  sequelize,
+};
 
-// Export the db object
-export default db;
+export default models;
