@@ -30,7 +30,7 @@ class _LandingScreenState extends ConsumerState<LandingScreen> {
                 width: MediaQuery.sizeOf(context).width / 5,
               ),
               const Gap(50),
-              Text("Welcome to JO", style: titleStyle),
+              const Text("Welcome to JO", style: titleStyle),
               const Gap(50),
               SizedBox(
                 width: 200,
