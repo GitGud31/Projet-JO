@@ -1,14 +1,17 @@
+import { DataTypes } from 'sequelize';
 
-module.exports = (sequelize, DataTypes) => {
-  const Epreuve = sequelize.define("Epreuve", {
+const Epreuve = (sequelize, DataTypes) => {
+  const epreuve = sequelize.define("Epreuve", {
     sport_id: DataTypes.INTEGER,
     libelle: DataTypes.STRING,
-    date:DataTypes.DATE,
+    date: DataTypes.DATE,
     lieu: DataTypes.STRING,
     idPremier: DataTypes.INTEGER,
     idDeuxieme: DataTypes.INTEGER,
     idTroisieme: DataTypes.INTEGER,
   });
 
-  return Epreuve;
+  return epreuve;
 };
+
+export default Epreuve;

@@ -1,8 +1,11 @@
+import { DataTypes } from 'sequelize';
 
-module.exports = (sequelize, DataTypes) => {
+const Sport = (sequelize, DataTypes) => {
   const sport = sequelize.define("sport", {
     libelle: DataTypes.STRING,
   });
 
   return sport;
 };
+
+export default Sport;

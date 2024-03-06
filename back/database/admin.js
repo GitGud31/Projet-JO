@@ -1,5 +1,6 @@
+import { DataTypes } from 'sequelize';
 
-module.exports = (sequelize, DataTypes) => {
+const Admin = (sequelize, DataTypes) => {
   const admin = sequelize.define("admin", {
     username: DataTypes.STRING,
     password: DataTypes.STRING,
@@ -7,3 +8,5 @@ module.exports = (sequelize, DataTypes) => {
 
   return admin;
 };
+
+export default Admin;
