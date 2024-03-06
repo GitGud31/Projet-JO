@@ -23,9 +23,6 @@ const PaysModel = Pays(sequelize, Sequelize);
 const PaysEpreuveModel = PaysEpreuve(sequelize, Sequelize);
 const SportModel = Sport(sequelize, Sequelize);
 
-// Define associations if necessary
-// For example:
-// AthleteModel.belongsTo(PaysModel);
 
 const models = {
   AdminModel,
