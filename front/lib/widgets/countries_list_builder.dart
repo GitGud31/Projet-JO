@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:front/conts/styles.dart';
+import 'package:front/models/pays.dart';
 import 'package:gap/gap.dart';
 
-class ListViewContentBuilder extends StatelessWidget {
-  const ListViewContentBuilder({
+class CountriesListBuilder extends StatelessWidget {
+  const CountriesListBuilder({
     super.key,
     required this.title,
     required this.data,
   });
 
   final String title;
-  final List data;
+  final List<Pays> data;
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +28,12 @@ class ListViewContentBuilder extends StatelessWidget {
                 itemCount: data.length,
                 itemBuilder: (_, index) {
                   return ExpansionTile(
+                    key: Key(data[index].id),
                     expandedAlignment: Alignment.centerLeft,
-                    title: Text('Pays $index'),
+                    childrenPadding:
+                        const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    title: Text(data[index].libelle),
+                    leading: Image.asset("${data[index].id}.png", width: 30),
                     trailing: const Icon(Icons.arrow_drop_down),
                     children: [
                       Text('Numbre of medals $index'),

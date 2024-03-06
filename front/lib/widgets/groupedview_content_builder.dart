@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:front/conts/styles.dart';
+import 'package:front/models/sport.dart';
 import 'package:gap/gap.dart';
 import 'package:grouped_list/grouped_list.dart';
 
@@ -10,7 +11,7 @@ class GroupedViewContentBuilder extends StatelessWidget {
     required this.data,
   });
 
-  final List data;
+  final List<Map<String, dynamic>> data;
   final String title;
 
   @override
@@ -24,20 +25,22 @@ class GroupedViewContentBuilder extends StatelessWidget {
           ),
           Expanded(
             flex: 1,
-            child: GroupedListView<dynamic, String>(
+            child: GroupedListView(
               sort: true,
               floatingHeader: true,
               addSemanticIndexes: true,
               useStickyGroupSeparators: true,
               order: GroupedListOrder.ASC,
               elements: data,
-              groupBy: (element) => element['sport'],
+              groupBy: (element) => (element['sport'] as Sport).libelle,
               groupSeparatorBuilder: (String grpByValue) => Text(grpByValue),
               itemComparator: (item1, item2) =>
                   item1['epreuve'].compareTo(item2['epreuve']),
-              groupHeaderBuilder: (elm) =>
-                  Text(elm['sport'], textAlign: TextAlign.center),
-              itemBuilder: (_, dynamic element) {
+              groupHeaderBuilder: (elm) => Text(
+                (elm['sport'] as Sport).libelle,
+                textAlign: TextAlign.center,
+              ),
+              itemBuilder: (_, element) {
                 return ExpansionTile(
                   expandedAlignment: Alignment.centerLeft,
                   title: Text(element['epreuve']),
