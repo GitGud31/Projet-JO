@@ -69,7 +69,16 @@ class _VisiteurScreenState extends ConsumerState<VisiteurScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             // title
-            const Text("Welcome !", style: titleStyle),
+            Expanded(
+              flex: 0,
+              child: Row(
+                children: [
+                  const Text("Welcome !", style: titleStyle),
+                  const Spacer(),
+                  Image.asset("logo_white.png", width: 70),
+                ],
+              ),
+            ),
 
             // content
             Expanded(

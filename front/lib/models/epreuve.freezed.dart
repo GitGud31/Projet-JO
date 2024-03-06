@@ -23,10 +23,11 @@ mixin _$Epreuve {
   String get id => throw _privateConstructorUsedError;
   String get libelle => throw _privateConstructorUsedError;
   String get site => throw _privateConstructorUsedError;
-  String get premiere => throw _privateConstructorUsedError;
+  String get premier => throw _privateConstructorUsedError;
   String get deuxieme => throw _privateConstructorUsedError;
   String get troisieme => throw _privateConstructorUsedError;
   String get isSport => throw _privateConstructorUsedError;
+  DateTime get date => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,10 +43,11 @@ abstract class $EpreuveCopyWith<$Res> {
       {String id,
       String libelle,
       String site,
-      String premiere,
+      String premier,
       String deuxieme,
       String troisieme,
-      String isSport});
+      String isSport,
+      DateTime date});
 }
 
 /// @nodoc
@@ -64,10 +66,11 @@ class _$EpreuveCopyWithImpl<$Res, $Val extends Epreuve>
     Object? id = null,
     Object? libelle = null,
     Object? site = null,
-    Object? premiere = null,
+    Object? premier = null,
     Object? deuxieme = null,
     Object? troisieme = null,
     Object? isSport = null,
+    Object? date = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -82,9 +85,9 @@ class _$EpreuveCopyWithImpl<$Res, $Val extends Epreuve>
           ? _value.site
           : site // ignore: cast_nullable_to_non_nullable
               as String,
-      premiere: null == premiere
-          ? _value.premiere
-          : premiere // ignore: cast_nullable_to_non_nullable
+      premier: null == premier
+          ? _value.premier
+          : premier // ignore: cast_nullable_to_non_nullable
               as String,
       deuxieme: null == deuxieme
           ? _value.deuxieme
@@ -98,6 +101,10 @@ class _$EpreuveCopyWithImpl<$Res, $Val extends Epreuve>
           ? _value.isSport
           : isSport // ignore: cast_nullable_to_non_nullable
               as String,
+      date: null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ) as $Val);
   }
 }
@@ -113,10 +120,11 @@ abstract class _$$EpreuveImplCopyWith<$Res> implements $EpreuveCopyWith<$Res> {
       {String id,
       String libelle,
       String site,
-      String premiere,
+      String premier,
       String deuxieme,
       String troisieme,
-      String isSport});
+      String isSport,
+      DateTime date});
 }
 
 /// @nodoc
@@ -133,10 +141,11 @@ class __$$EpreuveImplCopyWithImpl<$Res>
     Object? id = null,
     Object? libelle = null,
     Object? site = null,
-    Object? premiere = null,
+    Object? premier = null,
     Object? deuxieme = null,
     Object? troisieme = null,
     Object? isSport = null,
+    Object? date = null,
   }) {
     return _then(_$EpreuveImpl(
       id: null == id
@@ -151,9 +160,9 @@ class __$$EpreuveImplCopyWithImpl<$Res>
           ? _value.site
           : site // ignore: cast_nullable_to_non_nullable
               as String,
-      premiere: null == premiere
-          ? _value.premiere
-          : premiere // ignore: cast_nullable_to_non_nullable
+      premier: null == premier
+          ? _value.premier
+          : premier // ignore: cast_nullable_to_non_nullable
               as String,
       deuxieme: null == deuxieme
           ? _value.deuxieme
@@ -167,6 +176,10 @@ class __$$EpreuveImplCopyWithImpl<$Res>
           ? _value.isSport
           : isSport // ignore: cast_nullable_to_non_nullable
               as String,
+      date: null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ));
   }
 }
@@ -178,10 +191,11 @@ class _$EpreuveImpl implements _Epreuve {
       {required this.id,
       required this.libelle,
       required this.site,
-      required this.premiere,
+      required this.premier,
       required this.deuxieme,
       required this.troisieme,
-      required this.isSport});
+      required this.isSport,
+      required this.date});
 
   factory _$EpreuveImpl.fromJson(Map<String, dynamic> json) =>
       _$$EpreuveImplFromJson(json);
@@ -193,17 +207,19 @@ class _$EpreuveImpl implements _Epreuve {
   @override
   final String site;
   @override
-  final String premiere;
+  final String premier;
   @override
   final String deuxieme;
   @override
   final String troisieme;
   @override
   final String isSport;
+  @override
+  final DateTime date;
 
   @override
   String toString() {
-    return 'Epreuve(id: $id, libelle: $libelle, site: $site, premiere: $premiere, deuxieme: $deuxieme, troisieme: $troisieme, isSport: $isSport)';
+    return 'Epreuve(id: $id, libelle: $libelle, site: $site, premier: $premier, deuxieme: $deuxieme, troisieme: $troisieme, isSport: $isSport, date: $date)';
   }
 
   @override
@@ -214,19 +230,19 @@ class _$EpreuveImpl implements _Epreuve {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.libelle, libelle) || other.libelle == libelle) &&
             (identical(other.site, site) || other.site == site) &&
-            (identical(other.premiere, premiere) ||
-                other.premiere == premiere) &&
+            (identical(other.premier, premier) || other.premier == premier) &&
             (identical(other.deuxieme, deuxieme) ||
                 other.deuxieme == deuxieme) &&
             (identical(other.troisieme, troisieme) ||
                 other.troisieme == troisieme) &&
-            (identical(other.isSport, isSport) || other.isSport == isSport));
+            (identical(other.isSport, isSport) || other.isSport == isSport) &&
+            (identical(other.date, date) || other.date == date));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, libelle, site, premiere, deuxieme, troisieme, isSport);
+  int get hashCode => Object.hash(runtimeType, id, libelle, site, premier,
+      deuxieme, troisieme, isSport, date);
 
   @JsonKey(ignore: true)
   @override
@@ -247,10 +263,11 @@ abstract class _Epreuve implements Epreuve {
       {required final String id,
       required final String libelle,
       required final String site,
-      required final String premiere,
+      required final String premier,
       required final String deuxieme,
       required final String troisieme,
-      required final String isSport}) = _$EpreuveImpl;
+      required final String isSport,
+      required final DateTime date}) = _$EpreuveImpl;
 
   factory _Epreuve.fromJson(Map<String, dynamic> json) = _$EpreuveImpl.fromJson;
 
@@ -261,13 +278,15 @@ abstract class _Epreuve implements Epreuve {
   @override
   String get site;
   @override
-  String get premiere;
+  String get premier;
   @override
   String get deuxieme;
   @override
   String get troisieme;
   @override
   String get isSport;
+  @override
+  DateTime get date;
   @override
   @JsonKey(ignore: true)
   _$$EpreuveImplCopyWith<_$EpreuveImpl> get copyWith =>

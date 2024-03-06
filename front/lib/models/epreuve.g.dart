@@ -11,10 +11,11 @@ _$EpreuveImpl _$$EpreuveImplFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String,
       libelle: json['libelle'] as String,
       site: json['site'] as String,
-      premiere: json['premiere'] as String,
+      premier: json['premier'] as String,
       deuxieme: json['deuxieme'] as String,
       troisieme: json['troisieme'] as String,
       isSport: json['isSport'] as String,
+      date: DateTime.parse(json['date'] as String),
     );
 
 Map<String, dynamic> _$$EpreuveImplToJson(_$EpreuveImpl instance) =>
@@ -22,8 +23,9 @@ Map<String, dynamic> _$$EpreuveImplToJson(_$EpreuveImpl instance) =>
       'id': instance.id,
       'libelle': instance.libelle,
       'site': instance.site,
-      'premiere': instance.premiere,
+      'premier': instance.premier,
       'deuxieme': instance.deuxieme,
       'troisieme': instance.troisieme,
       'isSport': instance.isSport,
+      'date': instance.date.toIso8601String(),
     };

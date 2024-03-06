@@ -9,10 +9,11 @@ class Epreuve with _$Epreuve {
     required final String id,
     required final String libelle,
     required final String site,
-    required final String premiere,
+    required final String premier,
     required final String deuxieme,
     required final String troisieme,
     required final String isSport,
+    required final DateTime date,
   }) = _Epreuve;
 
   factory Epreuve.fromJson(Map<String, dynamic> json) =>
