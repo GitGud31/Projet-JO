@@ -1,6 +1,10 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import athleteRoute from './routes/athleteRoutes.js';
+import epreuveRoute from './routes/epreuveRoutes.js';
+import paysRoute from './routes/paysRoutes.js'
+import sportRoute from './routes/sportRoutes.js'
+
 
 const app = express();
 
@@ -9,6 +13,10 @@ app.use(bodyParser.json());
 
 // Routes
 app.use('/api', athleteRoute);
+app.use('/api', epreuveRoute);
+app.use('/api',paysRoute);
+app.use('/api',sportRoute);
+
 
 // Error handling middleware
 app.use((err, req, res, next) => {
