@@ -7,12 +7,16 @@ part of 'pays.dart';
 // **************************************************************************
 
 _$PaysImpl _$$PaysImplFromJson(Map<String, dynamic> json) => _$PaysImpl(
-      id: json['id'] as String,
+      id: json['id'] as int,
       libelle: json['libelle'] as String,
+      createdAt: json['createdAt'],
+      updatedAt: json['updatedAt'],
     );
 
 Map<String, dynamic> _$$PaysImplToJson(_$PaysImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'libelle': instance.libelle,
+      'createdAt': instance.createdAt,
+      'updatedAt': instance.updatedAt,
     };

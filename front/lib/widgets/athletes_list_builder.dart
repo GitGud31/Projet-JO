@@ -21,8 +21,6 @@ class _AthletesListBuilderState extends ConsumerState<AthletesListBuilder> {
           loading: () => const Center(child: CircularProgressIndicator()),
           error: (error, stackTrace) => Center(child: Text("ee $error")),
           data: (athletes) {
-            debugPrint("**** athletes $athletes");
-
             return Card(
               elevation: 1,
               child: Column(
@@ -40,7 +38,7 @@ class _AthletesListBuilderState extends ConsumerState<AthletesListBuilder> {
                               "${athletes[index].prenom} ${athletes[index].nom}";
                           final athleteCountry = countries.firstWhere(
                               (country) =>
-                                  country.id == "${athletes[index].pays_id}");
+                                  country.id == athletes[index].pays_id);
 
                           return ExpansionTile(
                             key: Key("${athletes[index].id}"),

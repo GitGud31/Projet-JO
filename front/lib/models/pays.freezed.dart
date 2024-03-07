@@ -20,8 +20,10 @@ Pays _$PaysFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Pays {
-  String get id => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
   String get libelle => throw _privateConstructorUsedError;
+  dynamic get createdAt => throw _privateConstructorUsedError;
+  dynamic get updatedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -33,7 +35,7 @@ abstract class $PaysCopyWith<$Res> {
   factory $PaysCopyWith(Pays value, $Res Function(Pays) then) =
       _$PaysCopyWithImpl<$Res, Pays>;
   @useResult
-  $Res call({String id, String libelle});
+  $Res call({int id, String libelle, dynamic createdAt, dynamic updatedAt});
 }
 
 /// @nodoc
@@ -51,16 +53,26 @@ class _$PaysCopyWithImpl<$Res, $Val extends Pays>
   $Res call({
     Object? id = null,
     Object? libelle = null,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       libelle: null == libelle
           ? _value.libelle
           : libelle // ignore: cast_nullable_to_non_nullable
               as String,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as dynamic,
     ) as $Val);
   }
 }
@@ -72,7 +84,7 @@ abstract class _$$PaysImplCopyWith<$Res> implements $PaysCopyWith<$Res> {
       __$$PaysImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String libelle});
+  $Res call({int id, String libelle, dynamic createdAt, dynamic updatedAt});
 }
 
 /// @nodoc
@@ -87,16 +99,26 @@ class __$$PaysImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? libelle = null,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
   }) {
     return _then(_$PaysImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       libelle: null == libelle
           ? _value.libelle
           : libelle // ignore: cast_nullable_to_non_nullable
               as String,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as dynamic,
     ));
   }
 }
@@ -104,19 +126,27 @@ class __$$PaysImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$PaysImpl implements _Pays {
-  const _$PaysImpl({required this.id, required this.libelle});
+  const _$PaysImpl(
+      {required this.id,
+      required this.libelle,
+      required this.createdAt,
+      required this.updatedAt});
 
   factory _$PaysImpl.fromJson(Map<String, dynamic> json) =>
       _$$PaysImplFromJson(json);
 
   @override
-  final String id;
+  final int id;
   @override
   final String libelle;
+  @override
+  final dynamic createdAt;
+  @override
+  final dynamic updatedAt;
 
   @override
   String toString() {
-    return 'Pays(id: $id, libelle: $libelle)';
+    return 'Pays(id: $id, libelle: $libelle, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -125,12 +155,19 @@ class _$PaysImpl implements _Pays {
         (other.runtimeType == runtimeType &&
             other is _$PaysImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.libelle, libelle) || other.libelle == libelle));
+            (identical(other.libelle, libelle) || other.libelle == libelle) &&
+            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
+            const DeepCollectionEquality().equals(other.updatedAt, updatedAt));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, libelle);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      libelle,
+      const DeepCollectionEquality().hash(createdAt),
+      const DeepCollectionEquality().hash(updatedAt));
 
   @JsonKey(ignore: true)
   @override
@@ -148,14 +185,21 @@ class _$PaysImpl implements _Pays {
 
 abstract class _Pays implements Pays {
   const factory _Pays(
-      {required final String id, required final String libelle}) = _$PaysImpl;
+      {required final int id,
+      required final String libelle,
+      required final dynamic createdAt,
+      required final dynamic updatedAt}) = _$PaysImpl;
 
   factory _Pays.fromJson(Map<String, dynamic> json) = _$PaysImpl.fromJson;
 
   @override
-  String get id;
+  int get id;
   @override
   String get libelle;
+  @override
+  dynamic get createdAt;
+  @override
+  dynamic get updatedAt;
   @override
   @JsonKey(ignore: true)
   _$$PaysImplCopyWith<_$PaysImpl> get copyWith =>

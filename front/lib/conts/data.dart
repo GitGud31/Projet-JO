@@ -26,15 +26,15 @@ final sports = <Map<String, dynamic>>[
 ];
 
 final countries = <Pays>[
-  const Pays(id: "1", libelle: "Venezuela"),
-  const Pays(id: "2", libelle: "Japan"),
-  const Pays(id: "3", libelle: "Hungary"),
-  const Pays(id: "4", libelle: "Brazil"),
-  const Pays(id: "5", libelle: "China"),
-  const Pays(id: "6", libelle: "Sweden"),
-  const Pays(id: "7", libelle: "United States"),
-  const Pays(id: "8", libelle: "South Korea"),
-  const Pays(id: "9", libelle: "France"),
+  const Pays(id: 1, libelle: "Venezuela", createdAt: null, updatedAt: null),
+  const Pays(id: 2, libelle: "Japan", createdAt: null, updatedAt: null),
+  const Pays(id: 3, libelle: "Hungary", createdAt: null, updatedAt: null),
+  const Pays(id: 4, libelle: "Brazil", createdAt: null, updatedAt: null),
+  const Pays(id: 5, libelle: "China", createdAt: null, updatedAt: null),
+  const Pays(id: 6, libelle: "Sweden", createdAt: null, updatedAt: null),
+  const Pays(id: 7, libelle: "United States", createdAt: null, updatedAt: null),
+  const Pays(id: 8, libelle: "South Korea", createdAt: null, updatedAt: null),
+  const Pays(id: 9, libelle: "France", createdAt: null, updatedAt: null),
 ];
 
 final athletes = <Athlete>[
