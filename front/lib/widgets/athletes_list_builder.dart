@@ -1,53 +1,65 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:front/controllers/async_athletes_controller.dart';
 import 'package:front/conts/colors.dart';
 import 'package:front/conts/data.dart';
 import 'package:front/conts/styles.dart';
 import 'package:front/models/athlete.dart';
 
-class AthletesListBuilder extends StatelessWidget {
-  const AthletesListBuilder({
-    super.key,
-    required this.title,
-    required this.data,
-  });
-
-  final String title;
-  final List<Athlete> data;
+class AthletesListBuilder extends ConsumerStatefulWidget {
+  const AthletesListBuilder({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Card(
-      elevation: 1,
-      child: Column(
-        children: [
-          ListTile(
-            title: Text(title, style: titleStyle.copyWith(fontSize: 18)),
-          ),
-          Expanded(
-            flex: 1,
-            child: ListView.builder(
-                itemCount: data.length,
-                itemBuilder: (_, index) {
-                  final fullname = "${data[index].prenom} ${data[index].nom}";
-                  final athleteCountry = countries.firstWhere(
-                      (country) => country.id == data[index].idPays);
+  ConsumerState<AthletesListBuilder> createState() =>
+      _AthletesListBuilderState();
+}
 
-                  return ExpansionTile(
-                    key: Key(data[index].id),
-                    expandedAlignment: Alignment.centerLeft,
-                    title: Text(fullname),
-                    trailing: const Icon(Icons.arrow_drop_down),
-                    childrenPadding:
-                        const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                    children: [
-                      Text('Country: ${athleteCountry.libelle}'),
-                    ],
-                  );
-                }),
-          ),
-        ],
-      ),
-    );
+class _AthletesListBuilderState extends ConsumerState<AthletesListBuilder> {
+  @override
+  Widget build(BuildContext context) {
+    return ref.watch(asyncAthletesP).when(
+          loading: () => const Center(child: CircularProgressIndicator()),
+          error: (error, stackTrace) => Center(child: Text("ee $error")),
+          data: (athletes) {
+            debugPrint("**** athletes $athletes");
+
+            return Card(
+              elevation: 1,
+              child: Column(
+                children: [
+                  ListTile(
+                    title: Text("Athletes",
+                        style: titleStyle.copyWith(fontSize: 18)),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: ListView.builder(
+                        itemCount: athletes.length,
+                        itemBuilder: (_, index) {
+                          final fullname =
+                              "${athletes[index].prenom} ${athletes[index].nom}";
+                          final athleteCountry = countries.firstWhere(
+                              (country) =>
+                                  country.id == "${athletes[index].pays_id}");
+
+                          return ExpansionTile(
+                            key: Key("${athletes[index].id}"),
+                            expandedAlignment: Alignment.centerLeft,
+                            title: Text(fullname),
+                            trailing: const Icon(Icons.arrow_drop_down),
+                            childrenPadding: const EdgeInsets.symmetric(
+                                horizontal: 16, vertical: 8),
+                            children: [
+                              Text('Country: ${athleteCountry.libelle}'),
+                            ],
+                          );
+                        }),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
   }
 }
 
@@ -78,7 +90,7 @@ class AdminAthletesListBuilder extends StatelessWidget {
                   final fullname = "${data[index].prenom} ${data[index].nom}";
 
                   return ListTile(
-                    key: Key(data[index].id),
+                    key: Key("${data[index].id}"),
                     title: Text(fullname),
                     trailing: Wrap(
                       children: [

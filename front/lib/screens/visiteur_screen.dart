@@ -57,12 +57,9 @@ class _VisiteurScreenState extends ConsumerState<VisiteurScreen> {
                         ),
 
                         // athletes
-                        Expanded(
+                        const Expanded(
                           flex: 1,
-                          child: AthletesListBuilder(
-                            title: "Athletes",
-                            data: athletes,
-                          ),
+                          child: AthletesListBuilder(),
                         ),
                       ],
                     ),

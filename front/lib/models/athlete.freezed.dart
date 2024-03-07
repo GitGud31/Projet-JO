@@ -20,10 +20,12 @@ Athlete _$AthleteFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Athlete {
-  String get id => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
   String get nom => throw _privateConstructorUsedError;
   String get prenom => throw _privateConstructorUsedError;
-  String get idPays => throw _privateConstructorUsedError;
+  int get pays_id => throw _privateConstructorUsedError;
+  dynamic get createdAt => throw _privateConstructorUsedError;
+  dynamic get updatedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +37,13 @@ abstract class $AthleteCopyWith<$Res> {
   factory $AthleteCopyWith(Athlete value, $Res Function(Athlete) then) =
       _$AthleteCopyWithImpl<$Res, Athlete>;
   @useResult
-  $Res call({String id, String nom, String prenom, String idPays});
+  $Res call(
+      {int id,
+      String nom,
+      String prenom,
+      int pays_id,
+      dynamic createdAt,
+      dynamic updatedAt});
 }
 
 /// @nodoc
@@ -54,13 +62,15 @@ class _$AthleteCopyWithImpl<$Res, $Val extends Athlete>
     Object? id = null,
     Object? nom = null,
     Object? prenom = null,
-    Object? idPays = null,
+    Object? pays_id = null,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       nom: null == nom
           ? _value.nom
           : nom // ignore: cast_nullable_to_non_nullable
@@ -69,10 +79,18 @@ class _$AthleteCopyWithImpl<$Res, $Val extends Athlete>
           ? _value.prenom
           : prenom // ignore: cast_nullable_to_non_nullable
               as String,
-      idPays: null == idPays
-          ? _value.idPays
-          : idPays // ignore: cast_nullable_to_non_nullable
-              as String,
+      pays_id: null == pays_id
+          ? _value.pays_id
+          : pays_id // ignore: cast_nullable_to_non_nullable
+              as int,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as dynamic,
     ) as $Val);
   }
 }
@@ -84,7 +102,13 @@ abstract class _$$AthleteImplCopyWith<$Res> implements $AthleteCopyWith<$Res> {
       __$$AthleteImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String nom, String prenom, String idPays});
+  $Res call(
+      {int id,
+      String nom,
+      String prenom,
+      int pays_id,
+      dynamic createdAt,
+      dynamic updatedAt});
 }
 
 /// @nodoc
@@ -101,13 +125,15 @@ class __$$AthleteImplCopyWithImpl<$Res>
     Object? id = null,
     Object? nom = null,
     Object? prenom = null,
-    Object? idPays = null,
+    Object? pays_id = null,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
   }) {
     return _then(_$AthleteImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       nom: null == nom
           ? _value.nom
           : nom // ignore: cast_nullable_to_non_nullable
@@ -116,10 +142,18 @@ class __$$AthleteImplCopyWithImpl<$Res>
           ? _value.prenom
           : prenom // ignore: cast_nullable_to_non_nullable
               as String,
-      idPays: null == idPays
-          ? _value.idPays
-          : idPays // ignore: cast_nullable_to_non_nullable
-              as String,
+      pays_id: null == pays_id
+          ? _value.pays_id
+          : pays_id // ignore: cast_nullable_to_non_nullable
+              as int,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as dynamic,
     ));
   }
 }
@@ -131,23 +165,29 @@ class _$AthleteImpl implements _Athlete {
       {required this.id,
       required this.nom,
       required this.prenom,
-      required this.idPays});
+      required this.pays_id,
+      required this.createdAt,
+      required this.updatedAt});
 
   factory _$AthleteImpl.fromJson(Map<String, dynamic> json) =>
       _$$AthleteImplFromJson(json);
 
   @override
-  final String id;
+  final int id;
   @override
   final String nom;
   @override
   final String prenom;
   @override
-  final String idPays;
+  final int pays_id;
+  @override
+  final dynamic createdAt;
+  @override
+  final dynamic updatedAt;
 
   @override
   String toString() {
-    return 'Athlete(id: $id, nom: $nom, prenom: $prenom, idPays: $idPays)';
+    return 'Athlete(id: $id, nom: $nom, prenom: $prenom, pays_id: $pays_id, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -158,12 +198,21 @@ class _$AthleteImpl implements _Athlete {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.nom, nom) || other.nom == nom) &&
             (identical(other.prenom, prenom) || other.prenom == prenom) &&
-            (identical(other.idPays, idPays) || other.idPays == idPays));
+            (identical(other.pays_id, pays_id) || other.pays_id == pays_id) &&
+            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
+            const DeepCollectionEquality().equals(other.updatedAt, updatedAt));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, nom, prenom, idPays);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      nom,
+      prenom,
+      pays_id,
+      const DeepCollectionEquality().hash(createdAt),
+      const DeepCollectionEquality().hash(updatedAt));
 
   @JsonKey(ignore: true)
   @override
@@ -181,21 +230,27 @@ class _$AthleteImpl implements _Athlete {
 
 abstract class _Athlete implements Athlete {
   const factory _Athlete(
-      {required final String id,
+      {required final int id,
       required final String nom,
       required final String prenom,
-      required final String idPays}) = _$AthleteImpl;
+      required final int pays_id,
+      required final dynamic createdAt,
+      required final dynamic updatedAt}) = _$AthleteImpl;
 
   factory _Athlete.fromJson(Map<String, dynamic> json) = _$AthleteImpl.fromJson;
 
   @override
-  String get id;
+  int get id;
   @override
   String get nom;
   @override
   String get prenom;
   @override
-  String get idPays;
+  int get pays_id;
+  @override
+  dynamic get createdAt;
+  @override
+  dynamic get updatedAt;
   @override
   @JsonKey(ignore: true)
   _$$AthleteImplCopyWith<_$AthleteImpl> get copyWith =>
