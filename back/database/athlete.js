@@ -4,11 +4,11 @@ const Athlete = (sequelize, DataTypes) => {
   const Athlete = sequelize.define("athlete", {
     nom: DataTypes.STRING,
     prenom: DataTypes.STRING,
-    pays_id: DataTypes.INTEGER,
+    paysId: DataTypes.INTEGER,
   });
 
   Athlete.associate = (models) => {
-    Athlete.belongsTo(models.sport, { foreignKey: "pays_id", as: "pays" });
+    Athlete.belongsTo(models.sport, { foreignKey: "paysId", as: "pays" });
   };
 
   // Custom functions
