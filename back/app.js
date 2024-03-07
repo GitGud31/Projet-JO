@@ -6,6 +6,7 @@ import paysRoute from "./routes/paysRoutes.js";
 import sportRoute from "./routes/sportRoutes.js";
 import athleteEpreuve from "./routes/athleteEpreuveRoute.js"
 import paysEpreuve from "./routes/paysEpreuveRoute.js"
+import auth from "./routes/authRoutes.js"
 
 import cors from 'cors';
 
@@ -23,6 +24,7 @@ app.use("/api", paysRoute);
 app.use("/api", sportRoute);
 app.use("/api",athleteEpreuve);
 app.use("/api",paysEpreuve);
+app.use("/api",auth);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
