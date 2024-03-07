@@ -6,12 +6,12 @@ part 'athlete.g.dart';
 @freezed
 class Athlete with _$Athlete {
   const factory Athlete({
-    required final int id,
+    final int? id,
     required final String nom,
     required final String prenom,
-    required final int pays_id,
-    required final dynamic createdAt,
-    required final dynamic updatedAt,
+    required final int paysId,
+    final dynamic createdAt,
+    final dynamic updatedAt,
   }) = _Athlete;
 
   factory Athlete.fromJson(Map<String, dynamic> json) =>

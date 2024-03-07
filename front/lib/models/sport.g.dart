@@ -7,12 +7,16 @@ part of 'sport.dart';
 // **************************************************************************
 
 _$SportImpl _$$SportImplFromJson(Map<String, dynamic> json) => _$SportImpl(
-      id: json['id'] as String,
+      id: json['id'] as int?,
       libelle: json['libelle'] as String,
+      createdAt: json['createdAt'],
+      updateAt: json['updateAt'],
     );
 
 Map<String, dynamic> _$$SportImplToJson(_$SportImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'libelle': instance.libelle,
+      'createdAt': instance.createdAt,
+      'updateAt': instance.updateAt,
     };

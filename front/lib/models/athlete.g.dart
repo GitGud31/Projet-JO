@@ -8,10 +8,10 @@ part of 'athlete.dart';
 
 _$AthleteImpl _$$AthleteImplFromJson(Map<String, dynamic> json) =>
     _$AthleteImpl(
-      id: json['id'] as int,
+      id: json['id'] as int?,
       nom: json['nom'] as String,
       prenom: json['prenom'] as String,
-      pays_id: json['pays_id'] as int,
+      paysId: json['paysId'] as int,
       createdAt: json['createdAt'],
       updatedAt: json['updatedAt'],
     );
@@ -21,7 +21,7 @@ Map<String, dynamic> _$$AthleteImplToJson(_$AthleteImpl instance) =>
       'id': instance.id,
       'nom': instance.nom,
       'prenom': instance.prenom,
-      'pays_id': instance.pays_id,
+      'paysId': instance.paysId,
       'createdAt': instance.createdAt,
       'updatedAt': instance.updatedAt,
     };

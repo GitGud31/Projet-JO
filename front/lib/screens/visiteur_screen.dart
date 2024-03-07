@@ -1,7 +1,6 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:front/conts/data.dart';
 import 'package:front/conts/styles.dart';
 import 'package:front/widgets/athletes_list_builder.dart';
 import 'package:front/widgets/groupedview_content_builder.dart';
@@ -39,7 +38,7 @@ class _VisiteurScreenState extends ConsumerState<VisiteurScreen> {
             ),
 
             // content
-            Expanded(
+            const Expanded(
               flex: 1,
               child: Row(
                 children: [
@@ -50,14 +49,11 @@ class _VisiteurScreenState extends ConsumerState<VisiteurScreen> {
                         // pays
                         Expanded(
                           flex: 1,
-                          child: CountriesListBuilder(
-                            title: "Pays",
-                            data: countries,
-                          ),
+                          child: CountriesListBuilder(),
                         ),
 
                         // athletes
-                        const Expanded(
+                        Expanded(
                           flex: 1,
                           child: AthletesListBuilder(),
                         ),
@@ -68,10 +64,7 @@ class _VisiteurScreenState extends ConsumerState<VisiteurScreen> {
                   // sports
                   Expanded(
                     flex: 1,
-                    child: GroupedViewContentBuilder(
-                      title: "Sports",
-                      data: sports,
-                    ),
+                    child: GroupedViewContentBuilder(),
                   ),
                 ],
               ),

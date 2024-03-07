@@ -20,8 +20,10 @@ Sport _$SportFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Sport {
-  String get id => throw _privateConstructorUsedError;
+  int? get id => throw _privateConstructorUsedError;
   String get libelle => throw _privateConstructorUsedError;
+  dynamic get createdAt => throw _privateConstructorUsedError;
+  dynamic get updateAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -33,7 +35,7 @@ abstract class $SportCopyWith<$Res> {
   factory $SportCopyWith(Sport value, $Res Function(Sport) then) =
       _$SportCopyWithImpl<$Res, Sport>;
   @useResult
-  $Res call({String id, String libelle});
+  $Res call({int? id, String libelle, dynamic createdAt, dynamic updateAt});
 }
 
 /// @nodoc
@@ -49,18 +51,28 @@ class _$SportCopyWithImpl<$Res, $Val extends Sport>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
+    Object? id = freezed,
     Object? libelle = null,
+    Object? createdAt = freezed,
+    Object? updateAt = freezed,
   }) {
     return _then(_value.copyWith(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int?,
       libelle: null == libelle
           ? _value.libelle
           : libelle // ignore: cast_nullable_to_non_nullable
               as String,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      updateAt: freezed == updateAt
+          ? _value.updateAt
+          : updateAt // ignore: cast_nullable_to_non_nullable
+              as dynamic,
     ) as $Val);
   }
 }
@@ -72,7 +84,7 @@ abstract class _$$SportImplCopyWith<$Res> implements $SportCopyWith<$Res> {
       __$$SportImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String libelle});
+  $Res call({int? id, String libelle, dynamic createdAt, dynamic updateAt});
 }
 
 /// @nodoc
@@ -86,18 +98,28 @@ class __$$SportImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
+    Object? id = freezed,
     Object? libelle = null,
+    Object? createdAt = freezed,
+    Object? updateAt = freezed,
   }) {
     return _then(_$SportImpl(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int?,
       libelle: null == libelle
           ? _value.libelle
           : libelle // ignore: cast_nullable_to_non_nullable
               as String,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      updateAt: freezed == updateAt
+          ? _value.updateAt
+          : updateAt // ignore: cast_nullable_to_non_nullable
+              as dynamic,
     ));
   }
 }
@@ -105,19 +127,24 @@ class __$$SportImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$SportImpl implements _Sport {
-  const _$SportImpl({required this.id, required this.libelle});
+  const _$SportImpl(
+      {this.id, required this.libelle, this.createdAt, this.updateAt});
 
   factory _$SportImpl.fromJson(Map<String, dynamic> json) =>
       _$$SportImplFromJson(json);
 
   @override
-  final String id;
+  final int? id;
   @override
   final String libelle;
+  @override
+  final dynamic createdAt;
+  @override
+  final dynamic updateAt;
 
   @override
   String toString() {
-    return 'Sport(id: $id, libelle: $libelle)';
+    return 'Sport(id: $id, libelle: $libelle, createdAt: $createdAt, updateAt: $updateAt)';
   }
 
   @override
@@ -126,12 +153,19 @@ class _$SportImpl implements _Sport {
         (other.runtimeType == runtimeType &&
             other is _$SportImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.libelle, libelle) || other.libelle == libelle));
+            (identical(other.libelle, libelle) || other.libelle == libelle) &&
+            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
+            const DeepCollectionEquality().equals(other.updateAt, updateAt));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, libelle);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      libelle,
+      const DeepCollectionEquality().hash(createdAt),
+      const DeepCollectionEquality().hash(updateAt));
 
   @JsonKey(ignore: true)
   @override
@@ -149,14 +183,21 @@ class _$SportImpl implements _Sport {
 
 abstract class _Sport implements Sport {
   const factory _Sport(
-      {required final String id, required final String libelle}) = _$SportImpl;
+      {final int? id,
+      required final String libelle,
+      final dynamic createdAt,
+      final dynamic updateAt}) = _$SportImpl;
 
   factory _Sport.fromJson(Map<String, dynamic> json) = _$SportImpl.fromJson;
 
   @override
-  String get id;
+  int? get id;
   @override
   String get libelle;
+  @override
+  dynamic get createdAt;
+  @override
+  dynamic get updateAt;
   @override
   @JsonKey(ignore: true)
   _$$SportImplCopyWith<_$SportImpl> get copyWith =>

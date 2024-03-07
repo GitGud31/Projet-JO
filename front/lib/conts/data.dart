@@ -1,31 +1,49 @@
-import 'package:front/models/athlete.dart';
-import 'package:front/models/pays.dart';
 import 'package:front/models/sport.dart';
 
 final sports = <Map<String, dynamic>>[
   {
     'epreuve': 'Athlétisme 1',
-    'sport': const Sport(id: "1", libelle: "Athlétisme")
+    'sport': const Sport(
+        id: 1, libelle: "Athlétisme", createdAt: null, updateAt: null)
   },
-  {'epreuve': 'Aviron 1', 'sport': const Sport(id: "2", libelle: "Aviron")},
+  {
+    'epreuve': 'Aviron 1',
+    'sport':
+        const Sport(id: 2, libelle: "Aviron", createdAt: null, updateAt: null)
+  },
   {
     'epreuve': 'Basketball 1',
-    'sport': const Sport(id: "3", libelle: "Basketball")
+    'sport': const Sport(
+        id: 3, libelle: "Basketball", createdAt: null, updateAt: null)
   },
-  {'epreuve': 'Football 1', 'sport': const Sport(id: "4", libelle: "Football")},
-  {'epreuve': 'Handball 1', 'sport': const Sport(id: "5", libelle: "Handball")},
-  {'epreuve': 'Boxe 1', 'sport': const Sport(id: "6", libelle: "Boxe")},
+  {
+    'epreuve': 'Football 1',
+    'sport':
+        const Sport(id: 4, libelle: "Football", createdAt: null, updateAt: null)
+  },
+  {
+    'epreuve': 'Handball 1',
+    'sport':
+        const Sport(id: 5, libelle: "Handball", createdAt: null, updateAt: null)
+  },
+  {
+    'epreuve': 'Boxe 1',
+    'sport':
+        const Sport(id: 6, libelle: "Boxe", createdAt: null, updateAt: null)
+  },
   {
     'epreuve': 'Water Polo 1',
-    'sport': const Sport(id: "7", libelle: "Water Polo")
+    'sport': const Sport(
+        id: 7, libelle: "Water Polo", createdAt: null, updateAt: null)
   },
   {
     'epreuve': 'Haltérophilie 1',
-    'sport': const Sport(id: "8", libelle: "Haltérophilie")
+    'sport': const Sport(
+        id: 8, libelle: "Haltérophilie", createdAt: null, updateAt: null)
   },
 ];
 
-final countries = <Pays>[
+/*final countries = <Pays>[
   const Pays(id: 1, libelle: "Venezuela", createdAt: null, updatedAt: null),
   const Pays(id: 2, libelle: "Japan", createdAt: null, updatedAt: null),
   const Pays(id: 3, libelle: "Hungary", createdAt: null, updatedAt: null),
@@ -102,3 +120,4 @@ final athletes = <Athlete>[
       createdAt: null,
       updatedAt: null),
 ];
+ */

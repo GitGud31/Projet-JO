@@ -20,14 +20,16 @@ Epreuve _$EpreuveFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Epreuve {
-  String get id => throw _privateConstructorUsedError;
+  int? get id => throw _privateConstructorUsedError;
   String get libelle => throw _privateConstructorUsedError;
-  String get site => throw _privateConstructorUsedError;
-  String get premier => throw _privateConstructorUsedError;
-  String get deuxieme => throw _privateConstructorUsedError;
-  String get troisieme => throw _privateConstructorUsedError;
-  String get isSport => throw _privateConstructorUsedError;
-  DateTime get date => throw _privateConstructorUsedError;
+  String get lieu => throw _privateConstructorUsedError;
+  int? get idPremier => throw _privateConstructorUsedError;
+  int? get idDeuxieme => throw _privateConstructorUsedError;
+  int? get idTroisieme => throw _privateConstructorUsedError;
+  dynamic get date => throw _privateConstructorUsedError;
+  int get sportId => throw _privateConstructorUsedError;
+  dynamic get createdAt => throw _privateConstructorUsedError;
+  dynamic get updatedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -40,14 +42,16 @@ abstract class $EpreuveCopyWith<$Res> {
       _$EpreuveCopyWithImpl<$Res, Epreuve>;
   @useResult
   $Res call(
-      {String id,
+      {int? id,
       String libelle,
-      String site,
-      String premier,
-      String deuxieme,
-      String troisieme,
-      String isSport,
-      DateTime date});
+      String lieu,
+      int? idPremier,
+      int? idDeuxieme,
+      int? idTroisieme,
+      dynamic date,
+      int sportId,
+      dynamic createdAt,
+      dynamic updatedAt});
 }
 
 /// @nodoc
@@ -63,48 +67,58 @@ class _$EpreuveCopyWithImpl<$Res, $Val extends Epreuve>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
+    Object? id = freezed,
     Object? libelle = null,
-    Object? site = null,
-    Object? premier = null,
-    Object? deuxieme = null,
-    Object? troisieme = null,
-    Object? isSport = null,
-    Object? date = null,
+    Object? lieu = null,
+    Object? idPremier = freezed,
+    Object? idDeuxieme = freezed,
+    Object? idTroisieme = freezed,
+    Object? date = freezed,
+    Object? sportId = null,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
   }) {
     return _then(_value.copyWith(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int?,
       libelle: null == libelle
           ? _value.libelle
           : libelle // ignore: cast_nullable_to_non_nullable
               as String,
-      site: null == site
-          ? _value.site
-          : site // ignore: cast_nullable_to_non_nullable
+      lieu: null == lieu
+          ? _value.lieu
+          : lieu // ignore: cast_nullable_to_non_nullable
               as String,
-      premier: null == premier
-          ? _value.premier
-          : premier // ignore: cast_nullable_to_non_nullable
-              as String,
-      deuxieme: null == deuxieme
-          ? _value.deuxieme
-          : deuxieme // ignore: cast_nullable_to_non_nullable
-              as String,
-      troisieme: null == troisieme
-          ? _value.troisieme
-          : troisieme // ignore: cast_nullable_to_non_nullable
-              as String,
-      isSport: null == isSport
-          ? _value.isSport
-          : isSport // ignore: cast_nullable_to_non_nullable
-              as String,
-      date: null == date
+      idPremier: freezed == idPremier
+          ? _value.idPremier
+          : idPremier // ignore: cast_nullable_to_non_nullable
+              as int?,
+      idDeuxieme: freezed == idDeuxieme
+          ? _value.idDeuxieme
+          : idDeuxieme // ignore: cast_nullable_to_non_nullable
+              as int?,
+      idTroisieme: freezed == idTroisieme
+          ? _value.idTroisieme
+          : idTroisieme // ignore: cast_nullable_to_non_nullable
+              as int?,
+      date: freezed == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as dynamic,
+      sportId: null == sportId
+          ? _value.sportId
+          : sportId // ignore: cast_nullable_to_non_nullable
+              as int,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as dynamic,
     ) as $Val);
   }
 }
@@ -117,14 +131,16 @@ abstract class _$$EpreuveImplCopyWith<$Res> implements $EpreuveCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String id,
+      {int? id,
       String libelle,
-      String site,
-      String premier,
-      String deuxieme,
-      String troisieme,
-      String isSport,
-      DateTime date});
+      String lieu,
+      int? idPremier,
+      int? idDeuxieme,
+      int? idTroisieme,
+      dynamic date,
+      int sportId,
+      dynamic createdAt,
+      dynamic updatedAt});
 }
 
 /// @nodoc
@@ -138,48 +154,58 @@ class __$$EpreuveImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
+    Object? id = freezed,
     Object? libelle = null,
-    Object? site = null,
-    Object? premier = null,
-    Object? deuxieme = null,
-    Object? troisieme = null,
-    Object? isSport = null,
-    Object? date = null,
+    Object? lieu = null,
+    Object? idPremier = freezed,
+    Object? idDeuxieme = freezed,
+    Object? idTroisieme = freezed,
+    Object? date = freezed,
+    Object? sportId = null,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
   }) {
     return _then(_$EpreuveImpl(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int?,
       libelle: null == libelle
           ? _value.libelle
           : libelle // ignore: cast_nullable_to_non_nullable
               as String,
-      site: null == site
-          ? _value.site
-          : site // ignore: cast_nullable_to_non_nullable
+      lieu: null == lieu
+          ? _value.lieu
+          : lieu // ignore: cast_nullable_to_non_nullable
               as String,
-      premier: null == premier
-          ? _value.premier
-          : premier // ignore: cast_nullable_to_non_nullable
-              as String,
-      deuxieme: null == deuxieme
-          ? _value.deuxieme
-          : deuxieme // ignore: cast_nullable_to_non_nullable
-              as String,
-      troisieme: null == troisieme
-          ? _value.troisieme
-          : troisieme // ignore: cast_nullable_to_non_nullable
-              as String,
-      isSport: null == isSport
-          ? _value.isSport
-          : isSport // ignore: cast_nullable_to_non_nullable
-              as String,
-      date: null == date
+      idPremier: freezed == idPremier
+          ? _value.idPremier
+          : idPremier // ignore: cast_nullable_to_non_nullable
+              as int?,
+      idDeuxieme: freezed == idDeuxieme
+          ? _value.idDeuxieme
+          : idDeuxieme // ignore: cast_nullable_to_non_nullable
+              as int?,
+      idTroisieme: freezed == idTroisieme
+          ? _value.idTroisieme
+          : idTroisieme // ignore: cast_nullable_to_non_nullable
+              as int?,
+      date: freezed == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as dynamic,
+      sportId: null == sportId
+          ? _value.sportId
+          : sportId // ignore: cast_nullable_to_non_nullable
+              as int,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as dynamic,
     ));
   }
 }
@@ -188,38 +214,44 @@ class __$$EpreuveImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$EpreuveImpl implements _Epreuve {
   const _$EpreuveImpl(
-      {required this.id,
+      {this.id,
       required this.libelle,
-      required this.site,
-      required this.premier,
-      required this.deuxieme,
-      required this.troisieme,
-      required this.isSport,
-      required this.date});
+      required this.lieu,
+      this.idPremier,
+      this.idDeuxieme,
+      this.idTroisieme,
+      required this.date,
+      required this.sportId,
+      this.createdAt,
+      this.updatedAt});
 
   factory _$EpreuveImpl.fromJson(Map<String, dynamic> json) =>
       _$$EpreuveImplFromJson(json);
 
   @override
-  final String id;
+  final int? id;
   @override
   final String libelle;
   @override
-  final String site;
+  final String lieu;
   @override
-  final String premier;
+  final int? idPremier;
   @override
-  final String deuxieme;
+  final int? idDeuxieme;
   @override
-  final String troisieme;
+  final int? idTroisieme;
   @override
-  final String isSport;
+  final dynamic date;
   @override
-  final DateTime date;
+  final int sportId;
+  @override
+  final dynamic createdAt;
+  @override
+  final dynamic updatedAt;
 
   @override
   String toString() {
-    return 'Epreuve(id: $id, libelle: $libelle, site: $site, premier: $premier, deuxieme: $deuxieme, troisieme: $troisieme, isSport: $isSport, date: $date)';
+    return 'Epreuve(id: $id, libelle: $libelle, lieu: $lieu, idPremier: $idPremier, idDeuxieme: $idDeuxieme, idTroisieme: $idTroisieme, date: $date, sportId: $sportId, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -229,20 +261,33 @@ class _$EpreuveImpl implements _Epreuve {
             other is _$EpreuveImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.libelle, libelle) || other.libelle == libelle) &&
-            (identical(other.site, site) || other.site == site) &&
-            (identical(other.premier, premier) || other.premier == premier) &&
-            (identical(other.deuxieme, deuxieme) ||
-                other.deuxieme == deuxieme) &&
-            (identical(other.troisieme, troisieme) ||
-                other.troisieme == troisieme) &&
-            (identical(other.isSport, isSport) || other.isSport == isSport) &&
-            (identical(other.date, date) || other.date == date));
+            (identical(other.lieu, lieu) || other.lieu == lieu) &&
+            (identical(other.idPremier, idPremier) ||
+                other.idPremier == idPremier) &&
+            (identical(other.idDeuxieme, idDeuxieme) ||
+                other.idDeuxieme == idDeuxieme) &&
+            (identical(other.idTroisieme, idTroisieme) ||
+                other.idTroisieme == idTroisieme) &&
+            const DeepCollectionEquality().equals(other.date, date) &&
+            (identical(other.sportId, sportId) || other.sportId == sportId) &&
+            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
+            const DeepCollectionEquality().equals(other.updatedAt, updatedAt));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, libelle, site, premier,
-      deuxieme, troisieme, isSport, date);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      libelle,
+      lieu,
+      idPremier,
+      idDeuxieme,
+      idTroisieme,
+      const DeepCollectionEquality().hash(date),
+      sportId,
+      const DeepCollectionEquality().hash(createdAt),
+      const DeepCollectionEquality().hash(updatedAt));
 
   @JsonKey(ignore: true)
   @override
@@ -260,33 +305,39 @@ class _$EpreuveImpl implements _Epreuve {
 
 abstract class _Epreuve implements Epreuve {
   const factory _Epreuve(
-      {required final String id,
+      {final int? id,
       required final String libelle,
-      required final String site,
-      required final String premier,
-      required final String deuxieme,
-      required final String troisieme,
-      required final String isSport,
-      required final DateTime date}) = _$EpreuveImpl;
+      required final String lieu,
+      final int? idPremier,
+      final int? idDeuxieme,
+      final int? idTroisieme,
+      required final dynamic date,
+      required final int sportId,
+      final dynamic createdAt,
+      final dynamic updatedAt}) = _$EpreuveImpl;
 
   factory _Epreuve.fromJson(Map<String, dynamic> json) = _$EpreuveImpl.fromJson;
 
   @override
-  String get id;
+  int? get id;
   @override
   String get libelle;
   @override
-  String get site;
+  String get lieu;
   @override
-  String get premier;
+  int? get idPremier;
   @override
-  String get deuxieme;
+  int? get idDeuxieme;
   @override
-  String get troisieme;
+  int? get idTroisieme;
   @override
-  String get isSport;
+  dynamic get date;
   @override
-  DateTime get date;
+  int get sportId;
+  @override
+  dynamic get createdAt;
+  @override
+  dynamic get updatedAt;
   @override
   @JsonKey(ignore: true)
   _$$EpreuveImplCopyWith<_$EpreuveImpl> get copyWith =>

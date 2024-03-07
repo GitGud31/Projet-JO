@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'pays.dart';
+part of 'pays_epreuve.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,40 +14,42 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-Pays _$PaysFromJson(Map<String, dynamic> json) {
-  return _Pays.fromJson(json);
+PaysEpreuve _$PaysEpreuveFromJson(Map<String, dynamic> json) {
+  return _PaysEpreuve.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Pays {
-  int? get id => throw _privateConstructorUsedError;
-  String get libelle => throw _privateConstructorUsedError;
-  String? get flag => throw _privateConstructorUsedError;
+mixin _$PaysEpreuve {
+  int get idEpreuvePays => throw _privateConstructorUsedError;
+  int get idPays => throw _privateConstructorUsedError;
+  int get libelle => throw _privateConstructorUsedError;
   dynamic get createdAt => throw _privateConstructorUsedError;
   dynamic get updatedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $PaysCopyWith<Pays> get copyWith => throw _privateConstructorUsedError;
+  $PaysEpreuveCopyWith<PaysEpreuve> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PaysCopyWith<$Res> {
-  factory $PaysCopyWith(Pays value, $Res Function(Pays) then) =
-      _$PaysCopyWithImpl<$Res, Pays>;
+abstract class $PaysEpreuveCopyWith<$Res> {
+  factory $PaysEpreuveCopyWith(
+          PaysEpreuve value, $Res Function(PaysEpreuve) then) =
+      _$PaysEpreuveCopyWithImpl<$Res, PaysEpreuve>;
   @useResult
   $Res call(
-      {int? id,
-      String libelle,
-      String? flag,
+      {int idEpreuvePays,
+      int idPays,
+      int libelle,
       dynamic createdAt,
       dynamic updatedAt});
 }
 
 /// @nodoc
-class _$PaysCopyWithImpl<$Res, $Val extends Pays>
-    implements $PaysCopyWith<$Res> {
-  _$PaysCopyWithImpl(this._value, this._then);
+class _$PaysEpreuveCopyWithImpl<$Res, $Val extends PaysEpreuve>
+    implements $PaysEpreuveCopyWith<$Res> {
+  _$PaysEpreuveCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -57,25 +59,25 @@ class _$PaysCopyWithImpl<$Res, $Val extends Pays>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? idEpreuvePays = null,
+    Object? idPays = null,
     Object? libelle = null,
-    Object? flag = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
     return _then(_value.copyWith(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
+      idEpreuvePays: null == idEpreuvePays
+          ? _value.idEpreuvePays
+          : idEpreuvePays // ignore: cast_nullable_to_non_nullable
+              as int,
+      idPays: null == idPays
+          ? _value.idPays
+          : idPays // ignore: cast_nullable_to_non_nullable
+              as int,
       libelle: null == libelle
           ? _value.libelle
           : libelle // ignore: cast_nullable_to_non_nullable
-              as String,
-      flag: freezed == flag
-          ? _value.flag
-          : flag // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -89,49 +91,51 @@ class _$PaysCopyWithImpl<$Res, $Val extends Pays>
 }
 
 /// @nodoc
-abstract class _$$PaysImplCopyWith<$Res> implements $PaysCopyWith<$Res> {
-  factory _$$PaysImplCopyWith(
-          _$PaysImpl value, $Res Function(_$PaysImpl) then) =
-      __$$PaysImplCopyWithImpl<$Res>;
+abstract class _$$PaysEpreuveImplCopyWith<$Res>
+    implements $PaysEpreuveCopyWith<$Res> {
+  factory _$$PaysEpreuveImplCopyWith(
+          _$PaysEpreuveImpl value, $Res Function(_$PaysEpreuveImpl) then) =
+      __$$PaysEpreuveImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {int? id,
-      String libelle,
-      String? flag,
+      {int idEpreuvePays,
+      int idPays,
+      int libelle,
       dynamic createdAt,
       dynamic updatedAt});
 }
 
 /// @nodoc
-class __$$PaysImplCopyWithImpl<$Res>
-    extends _$PaysCopyWithImpl<$Res, _$PaysImpl>
-    implements _$$PaysImplCopyWith<$Res> {
-  __$$PaysImplCopyWithImpl(_$PaysImpl _value, $Res Function(_$PaysImpl) _then)
+class __$$PaysEpreuveImplCopyWithImpl<$Res>
+    extends _$PaysEpreuveCopyWithImpl<$Res, _$PaysEpreuveImpl>
+    implements _$$PaysEpreuveImplCopyWith<$Res> {
+  __$$PaysEpreuveImplCopyWithImpl(
+      _$PaysEpreuveImpl _value, $Res Function(_$PaysEpreuveImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? idEpreuvePays = null,
+    Object? idPays = null,
     Object? libelle = null,
-    Object? flag = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
-    return _then(_$PaysImpl(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
+    return _then(_$PaysEpreuveImpl(
+      idEpreuvePays: null == idEpreuvePays
+          ? _value.idEpreuvePays
+          : idEpreuvePays // ignore: cast_nullable_to_non_nullable
+              as int,
+      idPays: null == idPays
+          ? _value.idPays
+          : idPays // ignore: cast_nullable_to_non_nullable
+              as int,
       libelle: null == libelle
           ? _value.libelle
           : libelle // ignore: cast_nullable_to_non_nullable
-              as String,
-      flag: freezed == flag
-          ? _value.flag
-          : flag // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -146,23 +150,23 @@ class __$$PaysImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PaysImpl implements _Pays {
-  const _$PaysImpl(
-      {this.id,
+class _$PaysEpreuveImpl implements _PaysEpreuve {
+  const _$PaysEpreuveImpl(
+      {required this.idEpreuvePays,
+      required this.idPays,
       required this.libelle,
-      this.flag,
-      this.createdAt,
-      this.updatedAt});
+      required this.createdAt,
+      required this.updatedAt});
 
-  factory _$PaysImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PaysImplFromJson(json);
+  factory _$PaysEpreuveImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PaysEpreuveImplFromJson(json);
 
   @override
-  final int? id;
+  final int idEpreuvePays;
   @override
-  final String libelle;
+  final int idPays;
   @override
-  final String? flag;
+  final int libelle;
   @override
   final dynamic createdAt;
   @override
@@ -170,17 +174,18 @@ class _$PaysImpl implements _Pays {
 
   @override
   String toString() {
-    return 'Pays(id: $id, libelle: $libelle, flag: $flag, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'PaysEpreuve(idEpreuvePays: $idEpreuvePays, idPays: $idPays, libelle: $libelle, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaysImpl &&
-            (identical(other.id, id) || other.id == id) &&
+            other is _$PaysEpreuveImpl &&
+            (identical(other.idEpreuvePays, idEpreuvePays) ||
+                other.idEpreuvePays == idEpreuvePays) &&
+            (identical(other.idPays, idPays) || other.idPays == idPays) &&
             (identical(other.libelle, libelle) || other.libelle == libelle) &&
-            (identical(other.flag, flag) || other.flag == flag) &&
             const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
             const DeepCollectionEquality().equals(other.updatedAt, updatedAt));
   }
@@ -189,48 +194,49 @@ class _$PaysImpl implements _Pays {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      id,
+      idEpreuvePays,
+      idPays,
       libelle,
-      flag,
       const DeepCollectionEquality().hash(createdAt),
       const DeepCollectionEquality().hash(updatedAt));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaysImplCopyWith<_$PaysImpl> get copyWith =>
-      __$$PaysImplCopyWithImpl<_$PaysImpl>(this, _$identity);
+  _$$PaysEpreuveImplCopyWith<_$PaysEpreuveImpl> get copyWith =>
+      __$$PaysEpreuveImplCopyWithImpl<_$PaysEpreuveImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaysImplToJson(
+    return _$$PaysEpreuveImplToJson(
       this,
     );
   }
 }
 
-abstract class _Pays implements Pays {
-  const factory _Pays(
-      {final int? id,
-      required final String libelle,
-      final String? flag,
-      final dynamic createdAt,
-      final dynamic updatedAt}) = _$PaysImpl;
+abstract class _PaysEpreuve implements PaysEpreuve {
+  const factory _PaysEpreuve(
+      {required final int idEpreuvePays,
+      required final int idPays,
+      required final int libelle,
+      required final dynamic createdAt,
+      required final dynamic updatedAt}) = _$PaysEpreuveImpl;
 
-  factory _Pays.fromJson(Map<String, dynamic> json) = _$PaysImpl.fromJson;
+  factory _PaysEpreuve.fromJson(Map<String, dynamic> json) =
+      _$PaysEpreuveImpl.fromJson;
 
   @override
-  int? get id;
+  int get idEpreuvePays;
   @override
-  String get libelle;
+  int get idPays;
   @override
-  String? get flag;
+  int get libelle;
   @override
   dynamic get createdAt;
   @override
   dynamic get updatedAt;
   @override
   @JsonKey(ignore: true)
-  _$$PaysImplCopyWith<_$PaysImpl> get copyWith =>
+  _$$PaysEpreuveImplCopyWith<_$PaysEpreuveImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:front/controllers/async_athletes_controller.dart';
+import 'package:front/controllers/async_pays_controller.dart';
 import 'package:front/conts/colors.dart';
-import 'package:front/conts/data.dart';
 import 'package:front/conts/styles.dart';
-import 'package:front/models/athlete.dart';
 
 class AthletesListBuilder extends ConsumerStatefulWidget {
   const AthletesListBuilder({super.key});
@@ -17,9 +16,11 @@ class AthletesListBuilder extends ConsumerStatefulWidget {
 class _AthletesListBuilderState extends ConsumerState<AthletesListBuilder> {
   @override
   Widget build(BuildContext context) {
+    final countries = ref.watch(asyncPaysP);
+
     return ref.watch(asyncAthletesP).when(
           loading: () => const Center(child: CircularProgressIndicator()),
-          error: (error, stackTrace) => Center(child: Text("ee $error")),
+          error: (error, stackTrace) => Center(child: Text("$error")),
           data: (athletes) {
             return Card(
               elevation: 1,
@@ -36,9 +37,9 @@ class _AthletesListBuilderState extends ConsumerState<AthletesListBuilder> {
                         itemBuilder: (_, index) {
                           final fullname =
                               "${athletes[index].prenom} ${athletes[index].nom}";
-                          final athleteCountry = countries.firstWhere(
+                          final athleteCountry = countries.value!.firstWhere(
                               (country) =>
-                                  country.id == athletes[index].pays_id);
+                                  country.id == athletes[index].paysId);
 
                           return ExpansionTile(
                             key: Key("${athletes[index].id}"),
@@ -61,56 +62,63 @@ class _AthletesListBuilderState extends ConsumerState<AthletesListBuilder> {
   }
 }
 
-class AdminAthletesListBuilder extends StatelessWidget {
-  const AdminAthletesListBuilder({
-    super.key,
-    required this.title,
-    required this.data,
-  });
-
-  final String title;
-  final List<Athlete> data;
+class AdminAthletesListBuilder extends ConsumerStatefulWidget {
+  const AdminAthletesListBuilder({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Card(
-      elevation: 1,
-      child: Column(
-        children: [
-          ListTile(
-            title: Text(title, style: titleStyle.copyWith(fontSize: 18)),
-          ),
-          Expanded(
-            flex: 1,
-            child: ListView.builder(
-                itemCount: data.length,
-                itemBuilder: (_, index) {
-                  final fullname = "${data[index].prenom} ${data[index].nom}";
+  ConsumerState<AdminAthletesListBuilder> createState() =>
+      _AdminAthletesListBuilderState();
+}
 
-                  return ListTile(
-                    key: Key("${data[index].id}"),
-                    title: Text(fullname),
-                    trailing: Wrap(
-                      children: [
-                        ElevatedButton(
-                          child: const Icon(Icons.add, color: white),
-                          onPressed: () {},
-                        ),
-                        ElevatedButton(
-                          child: Icon(Icons.edit, color: gold!),
-                          onPressed: () {},
-                        ),
-                        ElevatedButton(
-                          child: const Icon(Icons.delete),
-                          onPressed: () {},
-                        ),
-                      ],
-                    ),
-                  );
-                }),
-          ),
-        ],
-      ),
-    );
+class _AdminAthletesListBuilderState
+    extends ConsumerState<AdminAthletesListBuilder> {
+  @override
+  Widget build(BuildContext context) {
+    return ref.watch(asyncAthletesP).when(
+        loading: () => const Center(child: CircularProgressIndicator()),
+        error: (error, stackTrace) => Center(child: Text("$error")),
+        data: (athletes) {
+          return Card(
+            elevation: 1,
+            child: Column(
+              children: [
+                ListTile(
+                  title: Text("Add/Edit/Delet un Athlete",
+                      style: titleStyle.copyWith(fontSize: 18)),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: ListView.builder(
+                      itemCount: athletes.length,
+                      itemBuilder: (_, index) {
+                        final fullname =
+                            "${athletes[index].prenom} ${athletes[index].nom}";
+
+                        return ListTile(
+                          key: Key("${athletes[index].id}"),
+                          title: Text(fullname),
+                          trailing: Wrap(
+                            children: [
+                              ElevatedButton(
+                                child: const Icon(Icons.add, color: white),
+                                onPressed: () {},
+                              ),
+                              ElevatedButton(
+                                child: Icon(Icons.edit, color: gold!),
+                                onPressed: () {},
+                              ),
+                              ElevatedButton(
+                                child: const Icon(Icons.delete),
+                                onPressed: () {},
+                              ),
+                            ],
+                          ),
+                        );
+                      }),
+                ),
+              ],
+            ),
+          );
+        });
   }
 }
