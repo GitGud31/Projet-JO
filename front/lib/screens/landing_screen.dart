@@ -1,6 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:front/conts/colors.dart';
+import 'package:front/conts/styles.dart';
+import 'package:front/widgets/action_button.dart';
 import 'package:gap/gap.dart';
 
 import '../routing/routes.dart';
@@ -18,27 +21,40 @@ class _LandingScreenState extends ConsumerState<LandingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Column(
-          children: [
-            const Gap(150),
-            const Text("Welcome to JO"),
-            const Gap(50),
-            SizedBox(
-              width: 200,
-              child: ElevatedButton(
-                child: const Text("Visiteur"),
-                onPressed: () => context.navigateNamedTo(Routes.visiteur),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Image.asset(
+                "logo.png",
+                fit: BoxFit.contain,
+                width: MediaQuery.sizeOf(context).width / 5,
               ),
-            ),
-            const Gap(10),
-            SizedBox(
-              width: 200,
-              child: ElevatedButton(
-                child: const Text("Admin"),
-                onPressed: () => context.navigateNamedTo(Routes.admin),
+              const Gap(50),
+              const Text("Welcome to JO", style: titleStyle),
+              const Gap(50),
+              SizedBox(
+                width: 200,
+                height: 56,
+                child: ActionButton(
+                  text: "Visiteur",
+                  bgColor: gold!,
+                  textColor: white,
+                  onTap: () => context.navigateNamedTo(Routes.visiteur),
+                ),
               ),
-            ),
-          ],
+              const Gap(10),
+              SizedBox(
+                width: 200,
+                height: 56,
+                child: ActionButton(
+                  text: "Admin",
+                  bgColor: white,
+                  textColor: gold!,
+                  onTap: () => context.navigateNamedTo(Routes.login),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
