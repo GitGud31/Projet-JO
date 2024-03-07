@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:front/routing/routes.dart';
-import 'package:front/screens/admin_screen.dart';
+import 'package:front/screens/admin_dashbord_screen.dart';
 import 'package:front/screens/landing_screen.dart';
 import 'package:front/screens/login_screen.dart';
 import 'package:front/screens/visiteur_screen.dart';
