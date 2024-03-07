@@ -2,7 +2,7 @@ import { DataTypes } from 'sequelize';
 
 const Epreuve = (sequelize, DataTypes) => {
   const epreuve = sequelize.define("Epreuve", {
-    sport_id: DataTypes.INTEGER,
+    sportId: DataTypes.INTEGER,
     libelle: DataTypes.STRING,
     date: DataTypes.DATE,
     lieu: DataTypes.STRING,
