@@ -4,6 +4,8 @@ import athleteRoute from './routes/athleteRoutes.js';
 import epreuveRoute from './routes/epreuveRoutes.js';
 import paysRoute from './routes/paysRoutes.js'
 import sportRoute from './routes/sportRoutes.js'
+import athleteEpreuve from './routes/athleteEpreuveRoute.js'
+import paysEpreuve from './routes/paysEpreuveRoute.js'
 
 
 const app = express();
@@ -16,6 +18,8 @@ app.use('/api', athleteRoute);
 app.use('/api', epreuveRoute);
 app.use('/api',paysRoute);
 app.use('/api',sportRoute);
+app.use('/api',athleteEpreuve);
+app.use('/api',paysEpreuve);
 
 
 // Error handling middleware
