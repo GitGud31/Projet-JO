@@ -7,24 +7,29 @@ import sportRoute from "./routes/sportRoutes.js";
 import athleteEpreuve from "./routes/athleteEpreuveRoute.js"
 import paysEpreuve from "./routes/paysEpreuveRoute.js"
 import auth from "./routes/authRoutes.js"
-
+import coockieParser from 'cookie-parser'
 import cors from 'cors';
+import verify_token from "./middlewares/authMiddleware.js";
 
 const app = express();
 
 app.use(cors());
+app.use(coockieParser());
+
+
+
 
 // Middleware
 app.use(bodyParser.json());
 
 // Routes
-app.use("/api", athleteRoute);
-app.use("/api", epreuveRoute);
-app.use("/api", paysRoute);
-app.use("/api", sportRoute);
-app.use("/api",athleteEpreuve);
-app.use("/api",paysEpreuve);
 app.use("/api",auth);
+app.use("/api",verify_token, athleteRoute);
+app.use("/api",verify_token, epreuveRoute);
+app.use("/api",verify_token, paysRoute);
+app.use("/api",verify_token, sportRoute);
+app.use("/api",verify_token,athleteEpreuve);
+app.use("/api",verify_token,paysEpreuve);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
