@@ -7,7 +7,7 @@
   - to run the backend from local:
     - npm i.
     - node app.js
-  - to run the backend from a docker image.
+  - to run the backend from a docker image: https://hub.docker.com/repository/docker/mhamedl/projectjo/general
     - build the image on port 3000.
     - run the container.
     - in the container's terminal, you must do: service mysql start.
