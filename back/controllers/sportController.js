@@ -1,11 +1,11 @@
 // sportController.js
-import express from 'express';
-import models from './../database/index.js';
+import express from "express";
+import models from "./../database/index.js";
 
 const router = express.Router();
 
 // Get all sports
-router.get('/', async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const sports = await models.SportModel.findAll();
     res.json(sports);
@@ -15,11 +15,11 @@ router.get('/', async (req, res) => {
 });
 
 // Get sport by ID
-router.get('/:id', async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
     const sport = await models.SportModel.findByPk(req.params.id);
     if (!sport) {
-      res.status(404).json({ message: 'Sport not found' });
+      res.status(404).json({ message: "Sport not found" });
     } else {
       res.json(sport);
     }
@@ -29,7 +29,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // Create a new sport
-router.post('/', async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const { libelle } = req.body;
     const sport = await models.SportModel.create({ libelle });
@@ -40,11 +40,11 @@ router.post('/', async (req, res) => {
 });
 
 // Update a sport
-router.put('/:id', async (req, res) => {
+router.put("/:id", async (req, res) => {
   try {
     const sport = await models.SportModel.findByPk(req.params.id);
     if (!sport) {
-      res.status(404).json({ message: 'Sport not found' });
+      res.status(404).json({ message: "Sport not found" });
     } else {
       const { libelle } = req.body;
       await sport.update({ libelle });
@@ -56,11 +56,11 @@ router.put('/:id', async (req, res) => {
 });
 
 // Delete a sport
-router.delete('/:id', async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
     const sport = await models.SportModel.findByPk(req.params.id);
     if (!sport) {
-      res.status(404).json({ message: 'Sport not found' });
+      res.status(404).json({ message: "Sport not found" });
     } else {
       await sport.destroy();
       res.status(204).end();

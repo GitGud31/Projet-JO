@@ -4,11 +4,11 @@ import athleteRoute from "./routes/athleteRoutes.js";
 import epreuveRoute from "./routes/epreuveRoutes.js";
 import paysRoute from "./routes/paysRoutes.js";
 import sportRoute from "./routes/sportRoutes.js";
-import athleteEpreuve from "./routes/athleteEpreuveRoute.js"
-import paysEpreuve from "./routes/paysEpreuveRoute.js"
-import auth from "./routes/authRoutes.js"
+import athleteEpreuve from "./routes/athleteEpreuveRoute.js";
+import paysEpreuve from "./routes/paysEpreuveRoute.js";
+import auth from "./routes/authRoutes.js";
 
-import cors from 'cors';
+import cors from "cors";
 
 const app = express();
 
@@ -22,9 +22,9 @@ app.use("/api", athleteRoute);
 app.use("/api", epreuveRoute);
 app.use("/api", paysRoute);
 app.use("/api", sportRoute);
-app.use("/api",athleteEpreuve);
-app.use("/api",paysEpreuve);
-app.use("/api",auth);
+app.use("/api", athleteEpreuve);
+app.use("/api", paysEpreuve);
+app.use("/api", auth);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
@@ -37,3 +37,5 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+

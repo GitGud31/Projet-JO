@@ -71,7 +71,7 @@ const addUser = async (req, res) => {
       }
   
       // Hash password
-      const hashedPassword = await bcrypt.hash(password, 10);
+      const hashedPassword = password;
   
       // Create user in database
       const newUser = await models.AdminModel.create({ username, password: hashedPassword });
