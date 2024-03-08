@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:front/controllers/auth_controller.dart';
 import 'package:front/conts/colors.dart';
-import 'package:front/routing/routes.dart';
 import 'package:front/widgets/action_button.dart';
 import 'package:front/widgets/athletes_list_builder.dart';
 import 'package:front/widgets/countries_list_builder.dart';
@@ -31,11 +31,7 @@ class _AdminDashbordScreenState extends ConsumerState<AdminDashbordScreen> {
         ),
         actions: [
           ActionButton(
-            onTap: () {
-              //TODO send logout request
-
-              context.navigateNamedTo(Routes.landing);
-            },
+            onTap: () => ref.read(authTokenP.notifier).logout(),
             textColor: white,
             bgColor: red!,
             text: "Logout",

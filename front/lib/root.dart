@@ -1,6 +1,7 @@
 import "package:flex_color_scheme/flex_color_scheme.dart";
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
+import "package:front/controllers/auth_controller.dart";
 import "package:front/routing/app_router.dart";
 import "package:google_fonts/google_fonts.dart";
 
@@ -14,7 +15,9 @@ class Root extends ConsumerStatefulWidget {
 class _RootState extends ConsumerState<Root> {
   @override
   Widget build(BuildContext context) {
-    final appRouter = ref.watch(appRouterP);
+    //final appRouter = ref.watch(appRouterP);
+
+    final appRouter = AppRouter(ref);
 
     return MaterialApp.router(
       theme: FlexThemeData.dark(
@@ -33,7 +36,9 @@ class _RootState extends ConsumerState<Root> {
         useMaterial3: true,
         fontFamily: GoogleFonts.raleway().fontFamily,
       ),
-      routerConfig: appRouter.config(),
+      routerConfig: appRouter.config(
+        reevaluateListenable: ref.watch(authTokenP),
+      ),
     );
   }
 }

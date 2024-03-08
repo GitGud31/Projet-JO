@@ -1,7 +1,3 @@
-// ignore_for_file: depend_on_referenced_packages
-
-import 'dart:convert';
-
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -10,7 +6,6 @@ import 'package:front/conts/colors.dart';
 import 'package:front/routing/routes.dart';
 import 'package:front/widgets/action_button.dart';
 import 'package:gap/gap.dart';
-import 'package:http/http.dart' as http;
 
 final _passwordHiddenP = StateProvider<bool>((_) => true);
 
@@ -136,32 +131,16 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                           //final String hashed = BCrypt.hashpw(_passwordController.text, BCrypt.gensalt());
 
                           if (_formKey.currentState!.validate()) {
-                            await http
-                                .post(
-                              Uri.parse('http://localhost:3000/api/login'),
-                              headers: {
-                                "Content-Type": "application/json",
-                              },
-                              body: jsonEncode({
-                                "username": _usernameController.text,
-                                "password": _passwordController.text,
-                              }),
-                            )
-                                .then((response) {
-                              if (response.statusCode == 200) {
-                                final token = jsonDecode(response.body) as Map;
-
-                                ref
-                                    .read(authTokenP.notifier)
-                                    .update((state) => state = token["token"]);
-
-                                debugPrint(ref.read(authTokenP));
-
-                                context.navigateNamedTo(Routes.dashbord);
-                              } else {
-                                debugPrint("Error ${response.body}");
-                              }
-                            });
+                            await ref
+                                .read(authTokenP.notifier)
+                                .login(
+                                  _usernameController.text,
+                                  _passwordController.text,
+                                )
+                                .then(
+                                  (_) =>
+                                      context.navigateNamedTo(Routes.dashbord),
+                                );
                           }
                         },
                       ),

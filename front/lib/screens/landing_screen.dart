@@ -50,7 +50,7 @@ class _LandingScreenState extends ConsumerState<LandingScreen> {
                   text: "Admin",
                   bgColor: white,
                   textColor: gold!,
-                  onTap: () => context.navigateNamedTo(Routes.login),
+                  onTap: () => context.navigateNamedTo(Routes.dashbord),
                 ),
               ),
             ],
