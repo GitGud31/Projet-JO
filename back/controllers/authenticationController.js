@@ -10,9 +10,10 @@ const login = async (req, res) => {
 
   try {
     // Find user in database
-    const admin = await models.AdminModel.findOne({ where: { username } });
+    const { username  } = req.body;
+    const admin = await models.AdminModel.findOne({ where: { 'username': username } });;
     if (!admin) {
-      return res.status(401).json({ message: 'Invalid username or password' });
+      return res.status(401).json({ message: 'Invalid username or password '+ username });
     }
 
     // Check password
@@ -22,12 +23,41 @@ const login = async (req, res) => {
     }
 
     // Generate JWT token
-    const token = jwt.sign({ username: admin.username }, secretKey, { expiresIn: '1h' });
+    const token = jwt.sign({  id: admin.id,username: admin.username }, secretKey, { expiresIn: '1h' });
+
+    res.cookie("jwt", token, {
+      expires: new Date(
+        Date.now() + 3600 * 24 * 60 * 60 * 1000
+      ),
+      secure: false,
+      httpOnly: false,
+    });
+
 
     res.json({ token });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Internal server error' });
+  }
+};
+
+const logout = async (req, res) => {
+  try {
+    res.cookie("jwt", "logout", {
+      expires: new Date(Date.now() + 2 * 1000),
+      secure: false,
+      httpOnly: true,
+    });
+
+    return res.status(200).json({
+      status: "success",
+      data: null,
+    });
+  } catch (err) {
+    return res.status(400).json({
+      status: "fail",
+      message: err,
+    });
   }
 };
 
@@ -85,6 +115,7 @@ const addUser = async (req, res) => {
 
 export default {
   login,
+  logout,
   authenticateToken,
   addUser
 };
