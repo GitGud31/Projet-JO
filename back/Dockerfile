@@ -33,5 +33,11 @@ RUN npm install
 COPY startupscript.sh startupscript.sh
 RUN chmod +x startupscript.sh
 EXPOSE 3000
+
+ENV MYSQL_ROOT_PASSWORD=''
+ENV MYSQL_DATABASE='jodb'
+ENV MYSQL_USER='root'
+ENV MYSQL_PASSWORD=''
+
 ENTRYPOINT ["sh", "./startupscript.sh"]
 #CMD ["sh", "startupscript.sh"]
