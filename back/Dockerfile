@@ -6,15 +6,18 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 # Install MySQL Server
 RUN apt-get update && \
-    apt-get install -y mysql-server && \
+    apt-get install -y curl mysql-server && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
 # Install Node.js and npm
-RUN apt-get update && \
-    apt-get install -y nodejs npm && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+#RUN apt-get update && \
+#    apt-get install -y nodejs npm && \
+#    apt-get clean && \
+#    rm -rf /var/lib/apt/lists/*
+
+RUN curl -fsSL https://deb.nodesource.com/setup_21.x | bash - && \
+    apt-get install -y nodejs
 
 # Verify installations
 RUN node -v && npm -v && mysql --version
@@ -30,5 +33,5 @@ RUN npm install
 COPY startupscript.sh startupscript.sh
 RUN chmod +x startupscript.sh
 EXPOSE 3000
-#ENTRYPOINT ["./startupscript.sh"]
-CMD ["sh", "startupscript.sh"]
+ENTRYPOINT ["sh", "./startupscript.sh"]
+#CMD ["sh", "startupscript.sh"]
