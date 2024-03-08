@@ -97,8 +97,6 @@ class _AdminGroupedViewContentBuilderState
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (error, stackTrace) => Center(child: Text("$error")),
         data: (epreuves) {
-          debugPrint("$epreuves");
-
           return Card(
             elevation: 1,
             child: Column(
@@ -131,10 +129,6 @@ class _AdminGroupedViewContentBuilderState
                         title: Text(epreuve.libelle),
                         trailing: Wrap(
                           children: [
-                            ElevatedButton(
-                              child: const Icon(Icons.add, color: white),
-                              onPressed: () {},
-                            ),
                             ElevatedButton(
                               child: Icon(Icons.edit, color: gold!),
                               onPressed: () {},

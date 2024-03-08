@@ -100,10 +100,6 @@ class _AdminCountriesListBuilderState
                           trailing: Wrap(
                             children: [
                               ElevatedButton(
-                                child: const Icon(Icons.add, color: white),
-                                onPressed: () {},
-                              ),
-                              ElevatedButton(
                                 child: Icon(Icons.edit, color: gold!),
                                 onPressed: () {},
                               ),
