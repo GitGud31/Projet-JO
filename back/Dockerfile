@@ -32,6 +32,8 @@ WORKDIR /app
 RUN npm install
 COPY startupscript.sh startupscript.sh
 RUN chmod +x startupscript.sh
+COPY jodb.sql /docker-entrypoint-initdb.d/
+
 EXPOSE 3000
 
 ENV MYSQL_ROOT_PASSWORD=''
