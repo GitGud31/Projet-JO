@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:front/controllers/async_pays_controller.dart';
 import 'package:front/conts/colors.dart';
-import 'package:front/conts/data.dart';
+import 'package:front/models/pays.dart';
 import 'package:front/widgets/action_button.dart';
 import 'package:gap/gap.dart';
 
@@ -27,7 +28,7 @@ class _AddAthleteBuilderState extends ConsumerState<AddAthleteBuilder> {
     _lastNameController = TextEditingController();
   }
 
-  List<DropdownMenuEntry<String>> dropDownMenuEntries() {
+  List<DropdownMenuEntry<String>> dropDownMenuEntries(List<Pays> countries) {
     return countries
         .map((dataMap) =>
             DropdownMenuEntry(value: dataMap.libelle, label: dataMap.libelle))
@@ -36,6 +37,8 @@ class _AddAthleteBuilderState extends ConsumerState<AddAthleteBuilder> {
 
   @override
   Widget build(BuildContext context) {
+    final countries = ref.read(asyncPaysP).value!;
+
     return Card(
       elevation: 0,
       child: Padding(
@@ -51,7 +54,7 @@ class _AddAthleteBuilderState extends ConsumerState<AddAthleteBuilder> {
                 onSelected: (value) {
                   //TODO update value
                 },
-                dropdownMenuEntries: dropDownMenuEntries(),
+                dropdownMenuEntries: dropDownMenuEntries(countries),
               ),
 
               //first name

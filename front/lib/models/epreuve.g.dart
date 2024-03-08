@@ -8,24 +8,28 @@ part of 'epreuve.dart';
 
 _$EpreuveImpl _$$EpreuveImplFromJson(Map<String, dynamic> json) =>
     _$EpreuveImpl(
-      id: json['id'] as String,
+      id: json['id'] as int?,
       libelle: json['libelle'] as String,
-      site: json['site'] as String,
-      premier: json['premier'] as String,
-      deuxieme: json['deuxieme'] as String,
-      troisieme: json['troisieme'] as String,
-      isSport: json['isSport'] as String,
-      date: DateTime.parse(json['date'] as String),
+      lieu: json['lieu'] as String,
+      idPremier: json['idPremier'] as int?,
+      idDeuxieme: json['idDeuxieme'] as int?,
+      idTroisieme: json['idTroisieme'] as int?,
+      date: json['date'],
+      sportId: json['sportId'] as int,
+      createdAt: json['createdAt'],
+      updatedAt: json['updatedAt'],
     );
 
 Map<String, dynamic> _$$EpreuveImplToJson(_$EpreuveImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'libelle': instance.libelle,
-      'site': instance.site,
-      'premier': instance.premier,
-      'deuxieme': instance.deuxieme,
-      'troisieme': instance.troisieme,
-      'isSport': instance.isSport,
-      'date': instance.date.toIso8601String(),
+      'lieu': instance.lieu,
+      'idPremier': instance.idPremier,
+      'idDeuxieme': instance.idDeuxieme,
+      'idTroisieme': instance.idTroisieme,
+      'date': instance.date,
+      'sportId': instance.sportId,
+      'createdAt': instance.createdAt,
+      'updatedAt': instance.updatedAt,
     };

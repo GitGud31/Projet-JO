@@ -1,24 +1,24 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'pays.dart';
+part of 'athlete_epreuve.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$PaysImpl _$$PaysImplFromJson(Map<String, dynamic> json) => _$PaysImpl(
-      id: json['id'] as int?,
-      libelle: json['libelle'] as String,
-      flag: json['flag'] as String?,
+_$AthleteEpreuveImpl _$$AthleteEpreuveImplFromJson(Map<String, dynamic> json) =>
+    _$AthleteEpreuveImpl(
+      idEpreuve: json['idEpreuve'] as int?,
+      idAthlete: json['idAthlete'] as int?,
       createdAt: json['createdAt'],
       updatedAt: json['updatedAt'],
     );
 
-Map<String, dynamic> _$$PaysImplToJson(_$PaysImpl instance) =>
+Map<String, dynamic> _$$AthleteEpreuveImplToJson(
+        _$AthleteEpreuveImpl instance) =>
     <String, dynamic>{
-      'id': instance.id,
-      'libelle': instance.libelle,
-      'flag': instance.flag,
+      'idEpreuve': instance.idEpreuve,
+      'idAthlete': instance.idAthlete,
       'createdAt': instance.createdAt,
       'updatedAt': instance.updatedAt,
     };

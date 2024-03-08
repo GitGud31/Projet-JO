@@ -20,9 +20,11 @@ Admin _$AdminFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Admin {
-  String get id => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
   String get username => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
+  dynamic get createdAt => throw _privateConstructorUsedError;
+  dynamic get updatedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +36,12 @@ abstract class $AdminCopyWith<$Res> {
   factory $AdminCopyWith(Admin value, $Res Function(Admin) then) =
       _$AdminCopyWithImpl<$Res, Admin>;
   @useResult
-  $Res call({String id, String username, String password});
+  $Res call(
+      {int id,
+      String username,
+      String password,
+      dynamic createdAt,
+      dynamic updatedAt});
 }
 
 /// @nodoc
@@ -53,12 +60,14 @@ class _$AdminCopyWithImpl<$Res, $Val extends Admin>
     Object? id = null,
     Object? username = null,
     Object? password = null,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
@@ -67,6 +76,14 @@ class _$AdminCopyWithImpl<$Res, $Val extends Admin>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as dynamic,
     ) as $Val);
   }
 }
@@ -78,7 +95,12 @@ abstract class _$$AdminImplCopyWith<$Res> implements $AdminCopyWith<$Res> {
       __$$AdminImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String username, String password});
+  $Res call(
+      {int id,
+      String username,
+      String password,
+      dynamic createdAt,
+      dynamic updatedAt});
 }
 
 /// @nodoc
@@ -95,12 +117,14 @@ class __$$AdminImplCopyWithImpl<$Res>
     Object? id = null,
     Object? username = null,
     Object? password = null,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
   }) {
     return _then(_$AdminImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
@@ -109,6 +133,14 @@ class __$$AdminImplCopyWithImpl<$Res>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as dynamic,
     ));
   }
 }
@@ -117,21 +149,29 @@ class __$$AdminImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$AdminImpl implements _Admin {
   const _$AdminImpl(
-      {required this.id, required this.username, required this.password});
+      {required this.id,
+      required this.username,
+      required this.password,
+      required this.createdAt,
+      required this.updatedAt});
 
   factory _$AdminImpl.fromJson(Map<String, dynamic> json) =>
       _$$AdminImplFromJson(json);
 
   @override
-  final String id;
+  final int id;
   @override
   final String username;
   @override
   final String password;
+  @override
+  final dynamic createdAt;
+  @override
+  final dynamic updatedAt;
 
   @override
   String toString() {
-    return 'Admin(id: $id, username: $username, password: $password)';
+    return 'Admin(id: $id, username: $username, password: $password, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -143,12 +183,20 @@ class _$AdminImpl implements _Admin {
             (identical(other.username, username) ||
                 other.username == username) &&
             (identical(other.password, password) ||
-                other.password == password));
+                other.password == password) &&
+            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
+            const DeepCollectionEquality().equals(other.updatedAt, updatedAt));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, username, password);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      username,
+      password,
+      const DeepCollectionEquality().hash(createdAt),
+      const DeepCollectionEquality().hash(updatedAt));
 
   @JsonKey(ignore: true)
   @override
@@ -166,18 +214,24 @@ class _$AdminImpl implements _Admin {
 
 abstract class _Admin implements Admin {
   const factory _Admin(
-      {required final String id,
+      {required final int id,
       required final String username,
-      required final String password}) = _$AdminImpl;
+      required final String password,
+      required final dynamic createdAt,
+      required final dynamic updatedAt}) = _$AdminImpl;
 
   factory _Admin.fromJson(Map<String, dynamic> json) = _$AdminImpl.fromJson;
 
   @override
-  String get id;
+  int get id;
   @override
   String get username;
   @override
   String get password;
+  @override
+  dynamic get createdAt;
+  @override
+  dynamic get updatedAt;
   @override
   @JsonKey(ignore: true)
   _$$AdminImplCopyWith<_$AdminImpl> get copyWith =>

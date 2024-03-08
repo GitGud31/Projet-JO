@@ -6,8 +6,10 @@ part 'sport.g.dart';
 @freezed
 class Sport with _$Sport {
   const factory Sport({
-    required final String id,
+    final int? id,
     required final String libelle,
+    final dynamic createdAt,
+    final dynamic updateAt,
   }) = _Sport;
 
   factory Sport.fromJson(Map<String, dynamic> json) => _$SportFromJson(json);

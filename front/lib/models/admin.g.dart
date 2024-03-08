@@ -7,9 +7,11 @@ part of 'admin.dart';
 // **************************************************************************
 
 _$AdminImpl _$$AdminImplFromJson(Map<String, dynamic> json) => _$AdminImpl(
-      id: json['id'] as String,
+      id: json['id'] as int,
       username: json['username'] as String,
       password: json['password'] as String,
+      createdAt: json['createdAt'],
+      updatedAt: json['updatedAt'],
     );
 
 Map<String, dynamic> _$$AdminImplToJson(_$AdminImpl instance) =>
@@ -17,4 +19,6 @@ Map<String, dynamic> _$$AdminImplToJson(_$AdminImpl instance) =>
       'id': instance.id,
       'username': instance.username,
       'password': instance.password,
+      'createdAt': instance.createdAt,
+      'updatedAt': instance.updatedAt,
     };
