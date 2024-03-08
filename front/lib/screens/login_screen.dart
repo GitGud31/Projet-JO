@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:front/controllers/auth_controller.dart';
 import 'package:front/conts/colors.dart';
-import 'package:front/routing/routes.dart';
 import 'package:front/widgets/action_button.dart';
 import 'package:gap/gap.dart';
 
@@ -128,18 +127,10 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                         textColor: white,
                         bgColor: gold!,
                         onTap: () async {
-                          //final String hashed = BCrypt.hashpw(_passwordController.text, BCrypt.gensalt());
-
                           if (_formKey.currentState!.validate()) {
-                            await ref
-                                .read(authTokenP.notifier)
-                                .login(
+                            await ref.watch(authTokenP.notifier).login(
                                   _usernameController.text,
                                   _passwordController.text,
-                                )
-                                .then(
-                                  (_) =>
-                                      context.navigateNamedTo(Routes.dashbord),
                                 );
                           }
                         },

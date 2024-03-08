@@ -7,31 +7,35 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final authTokenP =
-    ChangeNotifierProvider<LoginController>((_) => LoginController());
+    ChangeNotifierProvider<LoginController>((ref) => LoginController(ref));
 
 class LoginController extends ChangeNotifier {
+  Ref ref;
+
+  LoginController(this.ref);
+
   String? _token;
 
   String? get token => _token;
 
   Future<void> login(String username, String password) async {
-    await http
-        .post(
+    final response = await http.post(
       Uri.parse('http://localhost:3000/api/login'),
       headers: {
         "Content-Type": "application/json",
       },
       body: jsonEncode({"username": username, "password": password}),
-    )
-        .then((response) {
-      if (response.statusCode == 200) {
-        final tokenMap = jsonDecode(response.body) as Map;
+    );
 
-        _token = tokenMap["token"];
-      } else {
-        debugPrint("Error ${response.body}");
-      }
-    });
+    if (response.statusCode == 200) {
+      final tokenMap = jsonDecode(response.body) as Map;
+
+      _token = tokenMap["token"];
+    } else {
+      _token = null;
+
+      throw response.body;
+    }
 
     notifyListeners();
   }

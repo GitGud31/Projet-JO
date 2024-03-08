@@ -54,7 +54,7 @@ class AuthGuard extends AutoRouteGuard {
   void onNavigation(NavigationResolver resolver, StackRouter router) {
     final authToken = ref.read(authTokenP);
 
-    if (authToken.token != null && authToken.token!.isNotEmpty) {
+    if (authToken.token != null) {
       return resolver.next(true);
     }
 
